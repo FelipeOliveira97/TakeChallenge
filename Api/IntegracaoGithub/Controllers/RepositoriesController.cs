@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using IntegracaoGithub.Model;
 using IntegracaoGithub.Service;
+using IntegracaoGithub.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -13,15 +14,16 @@ namespace IntegracaoGithub.Controllers
     [Route("[controller]")]
     public class RepositoriesController : ControllerBase
     {
-        public RepositoriesController()
+        private readonly IGithubService _githubService;
+        public RepositoriesController(IGithubService githubService)
         {
-
+            _githubService = githubService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var repos = await new GithubService().GetReposByLanguageAsync("C#", 5, "takenet");
+            var repos = await _githubService.GetReposByLanguageAsync("C#", 5, "takenet");
 
             return Ok(repos);
         }

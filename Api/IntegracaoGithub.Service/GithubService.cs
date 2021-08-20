@@ -8,12 +8,16 @@ using RestEase;
 
 namespace IntegracaoGithub.Service
 {
-    public class GithubService
+    public class GithubService : IGithubService
     {
+        private readonly IGithubClient _githubClient;
+        public GithubService(IGithubClient githubClient)
+        {
+            _githubClient = githubClient;
+        }
         public async Task<IEnumerable<GithubRepo>> GetReposByLanguageAsync(string language, int totalReturn, string user)
         {
-            var githubClient = RestClient.For<IGithubClient>("https://api.github.com");
-            var repos = await githubClient.GetReposAsync(user, "created", "asc");
+            var repos = await _githubClient.GetReposAsync(user, "created", "asc");
 
             return repos
             .Where(x => x.Language == language)

@@ -9,5 +9,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RestEase.HttpClientFactory" Version="1.5.5" />
+  </ItemGroup>
 
 </Project>
