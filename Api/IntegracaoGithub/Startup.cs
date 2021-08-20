@@ -81,6 +81,8 @@ namespace IntegracaoGithub
 
             app.UseRouting();
 
+            app.UseCors(builder => builder.AllowAnyOrigin());
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
