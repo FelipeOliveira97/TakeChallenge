@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="RestEase" Version="1.5.5" />
-    <PackageReference Include="RestSharp" Version="106.12.0" />
   </ItemGroup>
 
   <ItemGroup>

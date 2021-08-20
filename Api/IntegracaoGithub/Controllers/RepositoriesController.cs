@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using IntegracaoGithub.Model;
 using IntegracaoGithub.Service;
 using IntegracaoGithub.Service.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace IntegracaoGithub.Controllers
 {
+    [Produces("application/json")]
     [ApiController]
     [Route("[controller]")]
     public class RepositoriesController : ControllerBase
@@ -20,6 +22,10 @@ namespace IntegracaoGithub.Controllers
             _githubService = githubService;
         }
 
+        /// <summary>
+        /// Busca os 5 primeiros repositorios de c# criados pela take em ordem crescente
+        /// </summary>
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
