@@ -53,5 +53,5 @@ jobs:
       with:
         app-name: 'takechallengefelipe'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4fec371d8e1a491ba1154ee0d73c6506 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e321a6fbd8ca49a2988fee51b81bba32 }}
         package: .
